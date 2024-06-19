@@ -38,7 +38,7 @@ num_gpus = local_size * mpi_world_size
 communication_options = tf.distribute.experimental.CommunicationOptions(
     implementation=tf.distribute.experimental.CommunicationImplementation.NCCL)
 strategy = tf.distribute.MultiWorkerMirroredStrategy(
-    cluster_resolver=tf.distribute.cluster_resolver.SlurmClusterResolver(gpus_per_task=1,tasks_per_node=8,port_base=8888),
+    cluster_resolver=tf.distribute.cluster_resolver.SlurmClusterResolver(gpus_per_node=8,gpus_per_task=1,tasks_per_node=8,port_base=8888),
     communication_options=communication_options
 )
 
